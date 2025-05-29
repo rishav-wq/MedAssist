@@ -11,7 +11,9 @@ MedAssist is an AI-powered medical chatbot designed to understand user-reported 
 *   **Symptom Suggestions:** Provides auto-suggestions as the user types.
 
 ## Demo Screenshot
-*(Consider adding a screenshot of your chatbot in action here, for example, by placing an image named `screenshot.png` in a `docs` folder and using: `![MedAssist Demo](./docs/screenshot.png)`)*
+![Screenshot 2025-05-30 041816](https://github.com/user-attachments/assets/c5a0d01c-229d-4ba2-b0f1-b02ca707233a)
+
+![Screenshot 2025-05-30 041647](https://github.com/user-attachments/assets/28fee51a-bf30-40d2-92cb-0b8b68279b85)
 
 ## Requirements
 
