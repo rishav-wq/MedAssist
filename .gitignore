@@ -1,0 +1,7 @@
+# In your .gitignore file, at the root of your repository:
+venv_py310/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.DS_Store

@@ -1,0 +1,7 @@
+Flask
+torch
+nltk
+numpy==1.23.5 
+scikit-learn
+pandas
+matplotlib

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedAssist - AI Medical Chatbot</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        let symptoms = [];
+        function getSymptomsData(data) {
+            symptoms = data;
+        }
+        getSymptomsData({{data | tojson }});
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="bot-avatar">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <div class="bot-info">
+                    <h2 class="bot-name">MedAssist</h2>
+                    <div class="bot-status">
+                        <div class="status-dot"></div>
+                        <span>Online & Ready</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-content">
+                <div class="info-card">
+                    <div class="info-header">
+                        <i class="fas fa-info-circle"></i>
+                        <span>How it works</span>
+                    </div>
+                    <div class="info-text">
+                        <p>Describe your symptoms in detail. I'll help identify potential conditions and provide guidance.</p>
+                        <p class="info-note">Type "Done" when you've listed all symptoms.</p>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-header">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Privacy & Safety</span>
+                    </div>
+                    <div class="info-text">
+                        <p>Your conversations are secure. This tool provides general guidance only.</p>
+                        <p class="disclaimer">Always consult healthcare professionals for medical advice.</p>
+                    </div>
+                </div>
+                
+                <div class="quick-actions">
+                    <button id="start-over" class="action-btn">
+                        <i class="fas fa-refresh"></i>
+                        <span>Start Over</span>
+                    </button>
+                    <button class="action-btn secondary">
+                        <i class="fas fa-history"></i>
+                        <span>History</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Chat Area -->
+        <div class="chat-area">
+            <div class="chat-header">
+                <div class="header-info">
+                    <h3>Medical Consultation</h3>
+                    <p>AI-powered symptom analysis</p>
+                </div>
+                <div class="header-actions">
+                    <button class="header-btn">
+                        <i class="fas fa-download"></i>
+                    </button>
+                    <button class="header-btn">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="chat-messages" id="conversation">
+                <div class="message-wrapper bot-message">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <div class="message-bubble">
+                            <p>Hello! I'm <strong>MedAssist</strong>, your AI medical assistant. I'm here to help you understand your symptoms better.</p>
+                            <p>Please describe what symptoms you're currently experiencing. Be as detailed as possible - include when they started, their severity, and any patterns you've noticed.</p>
+                            <p class="highlight">When you've described all your symptoms, simply type <strong>"Done"</strong> to get my analysis.</p>
+                        </div>
+                        <div class="message-time">Just now</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input">
+                <div class="input-wrapper">
+                    <div class="symptoms-suggestions" id="symptoms-container">
+                        <ul id="symptoms-list"></ul>
+                    </div>
+                    <div class="input-area">
+                        <button class="input-btn emoji-btn">
+                            <i class="fas fa-smile"></i>
+                        </button>
+                        <input type="text" id="message-text" placeholder="Describe your symptoms..." autocomplete="off">
+                        <button class="input-btn attachment-btn">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                        <button id="send" class="send-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
